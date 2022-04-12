@@ -11,5 +11,4 @@ class Placement(models.Model):
     foster_parents = ArrayField(models.CharField(max_length=200), blank=True, null=True)
     foster_siblings = ArrayField(models.CharField(max_length=200), blank=True, null=True)
     notes = ArrayField(models.CharField(max_length=500), blank=True, null=True)
-    test_field = models.CharField(max_length=155, null=True)
     time_stamp = models.DateTimeField(auto_now_add=True)
