@@ -28,7 +28,7 @@ SECRET_KEY = config("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', 'morning-sierra-75914.herokuapp.com']
+ALLOWED_HOSTS = ['localhost', 'gentle-ocean-67775.herokuapp.com']
 
 
 # Application definition
