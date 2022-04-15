@@ -97,7 +97,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'foster_journey_db',
         'USER': 'postgres',
-        'PASSWORD': 'v052xd4',
+        'PASSWORD': config("LOCAL_DB_PASS"),
         'HOST': 'localhost'
     }
 }
