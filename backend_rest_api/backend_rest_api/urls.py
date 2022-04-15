@@ -18,6 +18,9 @@ from django.urls import path
 from django.conf.urls import include
 
 urlpatterns = [
+    # USER AUTHENTICATION ROUTES
+    path('api/', include(('core.routers', 'core'), namespace='core-api')),
+    
     path('', include('placements_api.urls')),
     path('admin/', admin.site.urls),
 ]
