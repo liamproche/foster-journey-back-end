@@ -3,3 +3,4 @@ from .models import Placement
 
 # Register your models here.
 admin.site.register(Placement)
+
