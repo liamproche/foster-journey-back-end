@@ -1,5 +1,4 @@
 # foster-journey-back-end
-# foster-journey-front-end
 
 NAME
 Foster Journey
