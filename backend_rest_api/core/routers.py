@@ -2,6 +2,7 @@ from rest_framework.routers import SimpleRouter
 from core.user.viewsets import UserViewSet
 from core.auth.viewsets import LoginViewSet, RegistrationViewSet, RefreshViewSet
 
+
 routes = SimpleRouter()
 
 # AUTHENTICATION
