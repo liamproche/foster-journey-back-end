@@ -31,7 +31,7 @@ SECRET_KEY = config("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', 'gentle-ocean-67775.herokuapp.com']
+ALLOWED_HOSTS = ['localhost', 'foster-journey-backend.herokuapp.com']
 
 
 # Application definition
@@ -100,8 +100,8 @@ DATABASES = {
         'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'foster_journey_db',
-        'USER': 'postgres',
-        'PASSWORD': config("LOCAL_DB_PASS"),
+        'USER': '',
+        'PASSWORD': '',
         'HOST': 'localhost'
     }
 }
