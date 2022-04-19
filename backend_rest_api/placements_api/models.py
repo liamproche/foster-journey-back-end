@@ -21,8 +21,10 @@ class FosterParent(models.Model):
     last_name = models.CharField(max_length=55, null=True)
     url = models.URLField(max_length=255)
     placement = models.ForeignKey(Placement, default=None, on_delete=models.CASCADE)
+    time_stamp = models.DateTimeField(auto_now_add=True)
 
 class FosterSibling(models.Model):
     first_name = models.CharField(max_length=55, null=False)
     last_name = models.CharField(max_length=55, null=True)
     placement = models.ForeignKey(Placement, default=None, on_delete=models.CASCADE)
+    time_stamp = models.DateTimeField(auto_now_add=True)
