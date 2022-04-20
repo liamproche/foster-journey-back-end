@@ -1,6 +1,6 @@
 from rest_framework import serializers 
-from .models import Placement 
-from .models import FosterParent
+from .models import Placement, FosterParent, FosterSibling
+
 
 class PlacementSerializer(serializers.ModelSerializer): # serializers.ModelSerializer just tells django to convert sql to JSON
     class Meta:
@@ -12,3 +12,8 @@ class ParentSerializer(serializers.ModelSerializer):
     class Meta:
         model = FosterParent 
         fields = ('first_name', 'last_name', 'url', 'time_stamp', 'placement')
+
+class SiblingSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = FosterSibling 
+        fields = ('first_name', 'last_name', 'time_stamp', 'placement')
