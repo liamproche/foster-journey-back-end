@@ -11,9 +11,9 @@ class PlacementSerializer(serializers.ModelSerializer): # serializers.ModelSeria
 class ParentSerializer(serializers.ModelSerializer):
     class Meta:
         model = FosterParent 
-        fields = ('first_name', 'last_name', 'url', 'time_stamp', 'placement')
+        fields = ('first_name', 'last_name', 'url', 'time_stamp', 'placement', 'id')
 
 class SiblingSerializer(serializers.ModelSerializer):
     class Meta:
         model = FosterSibling 
-        fields = ('first_name', 'last_name', 'time_stamp', 'placement')
+        fields = ('first_name', 'last_name', 'time_stamp', 'placement', 'id')
