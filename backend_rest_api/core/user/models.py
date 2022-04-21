@@ -3,14 +3,18 @@ from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, Permis
 
 
 class UserManager(BaseUserManager):
-    def create_user(self, username, email, password=None, **kwargs):
+    # REMOVED EMAIL FROM ARGUMENTS
+    def create_user(self, username, first_name, last_name, password=None, **kwargs):
         """Create and return a `User` with an email, username and password."""
         if username is None:
             raise TypeError('Users must have a username.')
-        if email is None:
-            raise TypeError('Users must have an email.')
+        # if email is None:
+        #     raise TypeError('Users must have an email.')
 
-        user = self.model(username=username, email=self.normalize_email(email))
+        # REMOVED "email=self.normalize_email(email)" FROM USER=ARGUMENTS
+        user = self.model(username=username)
+        user.first_name = first_name
+        user.last_name = last_name
         user.set_password(password)
         user.save(using=self._db)
 
@@ -37,13 +41,15 @@ class UserManager(BaseUserManager):
 
 class User(AbstractBaseUser, PermissionsMixin):
     username = models.CharField(db_index=True, max_length=255, unique=True)
-    email = models.EmailField(db_index=True, unique=True,  null=True, blank=True)
+    # email = models.EmailField(db_index=True, unique=True,  null=True, blank=True)
+    first_name = models.CharField(max_length=55)
+    last_name = models.CharField(max_length=55, null=True)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
     created = models.DateTimeField(auto_now_add=True)
 
     USERNAME_FIELD = 'username'
-    REQUIRED_FIELDS = ['email']
+    # REQUIRED_FIELDS = ['username']
 
     objects = UserManager()
 

@@ -26,15 +26,16 @@ class LoginSerializer(TokenObtainPairSerializer):
 
 class RegisterSerializer(UserSerializer):
     password = serializers.CharField(max_length=128, min_length=8, write_only=True, required=True)
-    email = serializers.EmailField(required=True, write_only=True, max_length=128)
+    # email = serializers.EmailField(required=True, write_only=True, max_length=128)
 
     class Meta:
         model = User
-        fields = ['id', 'username', 'email', 'password', 'is_active', 'created']
+        # REMOVED EMAIL FROM FIELDS
+        fields = ['id', 'username', 'first_name', 'last_name', 'password', 'is_active', 'created']
 
     def create(self, validated_data):
         try:
-            user = User.objects.get(email=validated_data['email'])
+            user = User.objects.get(username=validated_data['username'])
         except ObjectDoesNotExist:
             user = User.objects.create_user(**validated_data)
         return user
