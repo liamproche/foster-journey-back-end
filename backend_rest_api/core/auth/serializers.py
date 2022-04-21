@@ -7,13 +7,25 @@ from core.user.serializers import UserSerializer
 from core.user.models import User
 
 
-class LoginSerializer(TokenObtainPairSerializer):
+# ADDED FOR CUSTOM TOKENS
 
+class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
+    @classmethod
+    def get_token(cls, user):
+        token = super().get_token(user)
+
+        # Add custom claims
+        token['first_name'] = user.first_name
+        # ...
+        return token
+
+# END CUSTOM TOKENS
+
+
+class LoginSerializer(MyTokenObtainPairSerializer):
     def validate(self, attrs):
         data = super().validate(attrs)
-
         refresh = self.get_token(self.user)
-
         data['user'] = UserSerializer(self.user).data
         data['refresh'] = str(refresh)
         data['access'] = str(refresh.access_token)
@@ -26,11 +38,8 @@ class LoginSerializer(TokenObtainPairSerializer):
 
 class RegisterSerializer(UserSerializer):
     password = serializers.CharField(max_length=128, min_length=8, write_only=True, required=True)
-    # email = serializers.EmailField(required=True, write_only=True, max_length=128)
-
     class Meta:
         model = User
-        # REMOVED EMAIL FROM FIELDS
         fields = ['id', 'username', 'first_name', 'last_name', 'password', 'is_active', 'created']
 
     def create(self, validated_data):

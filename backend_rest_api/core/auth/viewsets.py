@@ -8,7 +8,20 @@ from rest_framework_simplejwt.exceptions import TokenError, InvalidToken
 from core.auth.serializers import LoginSerializer, RegisterSerializer
 
 
-class LoginViewSet(ModelViewSet, TokenObtainPairView):
+# ADDED FOR TOKEN CUSTOMIZATION
+from rest_framework_simplejwt.views import TokenObtainPairView
+from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
+from .serializers import MyTokenObtainPairSerializer
+
+
+class MyTokenObtainPairView(TokenObtainPairView):
+    serializer_class = MyTokenObtainPairSerializer
+
+# END ADDED FOR TOKEN CUSTOMIZATION
+
+
+
+class LoginViewSet(ModelViewSet, MyTokenObtainPairView):
     serializer_class = LoginSerializer
     permission_classes = (AllowAny,)
     http_method_names = ['post']
@@ -24,7 +37,7 @@ class LoginViewSet(ModelViewSet, TokenObtainPairView):
         return Response(serializer.validated_data, status=status.HTTP_200_OK)
 
 
-class RegistrationViewSet(ModelViewSet, TokenObtainPairView):
+class RegistrationViewSet(ModelViewSet, MyTokenObtainPairView):
     serializer_class = RegisterSerializer
     permission_classes = (AllowAny,)
     http_method_names = ['post']
