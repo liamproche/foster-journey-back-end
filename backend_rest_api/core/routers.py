@@ -1,7 +1,10 @@
+from posixpath import basename
 from rest_framework.routers import SimpleRouter
 from core.user.viewsets import UserViewSet
 from core.auth.viewsets import LoginViewSet, RegistrationViewSet, RefreshViewSet
 
+
+from .user import views
 
 routes = SimpleRouter()
 
@@ -12,6 +15,7 @@ routes.register(r'auth/refresh', RefreshViewSet, basename='auth-refresh')
 
 # USER
 routes.register(r'user', UserViewSet, basename='user')
+
 
 urlpatterns = [
     *routes.urls
