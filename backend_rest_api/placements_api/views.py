@@ -3,10 +3,11 @@ from rest_framework import generics
 from .serializers import PlacementSerializer, ParentSerializer, SiblingSerializer
 from .models import Placement, FosterParent, FosterSibling
 
+
 # PLACEMENTS
 class PlacementList(generics.ListCreateAPIView):
-    queryset = Placement.objects.all().order_by('id') # tell django how to retrieve all objects from the DB, order by id ascending
-    serializer_class = PlacementSerializer # tell django what serializer to use
+    queryset = Placement.objects.all().order_by('id')
+    serializer_class = PlacementSerializer 
 
 class PlacementDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Placement.objects.all().order_by('id')
@@ -29,4 +30,3 @@ class SiblingList(generics.ListCreateAPIView):
 class SiblingDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = FosterSibling.objects.all().order_by('id')
     serializer_class = SiblingSerializer
-
