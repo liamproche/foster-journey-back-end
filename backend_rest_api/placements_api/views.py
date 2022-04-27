@@ -6,7 +6,8 @@ from .models import Placement, FosterParent, FosterSibling
 
 # PLACEMENTS
 class PlacementList(generics.ListCreateAPIView):
-    queryset = Placement.objects.all().order_by('num')
+    def get_queryset (self):
+        return Placement.objects.all().filter(user=self.request.user.id)
     serializer_class = PlacementSerializer 
 
 class PlacementDetail(generics.RetrieveUpdateDestroyAPIView):
