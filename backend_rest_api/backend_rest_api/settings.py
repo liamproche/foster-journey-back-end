@@ -99,7 +99,7 @@ DATABASES = {
 #     }
         'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'foster_journey_db',
+        'NAME': 'foster_journey_db_2',
         'USER': 'postgres',
         'PASSWORD': 'v052xd4',
         'HOST': 'localhost'
