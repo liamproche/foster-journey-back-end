@@ -42,8 +42,9 @@ class User(AbstractBaseUser, PermissionsMixin):
     is_staff = models.BooleanField(default=False)
     created = models.DateTimeField(auto_now_add=True)
     placements = models.PositiveIntegerField(default=0)
+    foster_parents = models.PositiveIntegerField(default=0)
+    foster_siblings = models.PositiveIntegerField(default=0)
     USERNAME_FIELD = 'username'
-
     objects = UserManager()
 
     def __str__(self):
