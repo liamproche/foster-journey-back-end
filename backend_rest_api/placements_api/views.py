@@ -1,4 +1,4 @@
-from django.shortcuts import render
+# from django.shortcuts import render
 from rest_framework import generics
 from .serializers import PlacementSerializer, ParentSerializer, SiblingSerializer
 from .models import Placement, FosterParent, FosterSibling
@@ -7,7 +7,8 @@ from .models import Placement, FosterParent, FosterSibling
 # PLACEMENTS
 class PlacementList(generics.ListCreateAPIView):
     def get_queryset (self):
-        return Placement.objects.all().filter(user=self.request.user.id)
+        user_id = self.request.GET.get('user')
+        return Placement.objects.all().filter(user=user_id).order_by('num')
     serializer_class = PlacementSerializer 
 
 class PlacementDetail(generics.RetrieveUpdateDestroyAPIView):
