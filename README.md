@@ -82,27 +82,28 @@ NOTE- How to tie this to placement model?
 VERSION 2 GOALS:
 
 PRESSING TODO
--Add app description
--Error handling
--Portfolio-quality styling (NOTE: Complete UX Engineering Module before starting)
--User placement filter currently happens in the front-end. This should be changed to the backend so the API only fetches placements for specific user
--Complete user routes
--Delete console.logs
--User model should collect first name, last name
--Update access and refresh tokens to include username (maybe first name instead?) and include in UI/UX
--Fix date format for placement start date and end date
--Get rid of email requirement for both registration & Login (This might turn into a security nightmare, but what if foster youth doesn't have email?)
+#-Add app description
+#-Error handling
+#-Portfolio-quality styling 
+#-User placement filter currently happens in the front-end. This should be changed to the backend so the API only fetches placements for specific user
+#-Complete user routes
+	*Set state to custom auth and then reset state on update
+	*Confirm user delete
+#-Delete console.logs
+#-User model should collect first name, last name
+#-Update access and refresh tokens to include username (maybe first name instead?) and include in UI/UX
+#-Fix date format for placement start date and end date
+#-Get rid of email requirement for both registration & Login (This might turn into a security nightmare, but what if foster youth doesn't have email?)
 
 
 ADDITIONAL TODO
--Separate models for foster parents, foster siblings tied to placement model (one to many)
--Image upload for foster parents (foster siblings?..... This is delicate from a safety perspective)
--On home page without being logged in option to view journey of random user to help increase awareness of stories of foster youth
--Statistics on home page pulled from app data
-	-Average number of placements per user
+#-Separate models for foster parents, foster siblings tied to placement model (one to many)
+#-Image upload for foster parents (foster siblings?..... This is delicate from a safety perspective)
+#-Statistics on home page pulled from app data
+	#-Average number of placements per user
 	-Average length of stay per placement
-	-Average number of foster parents/siblings a foster youth encounters on journey
--Include password confirmation field when registering and updating password
+	#-Average number of foster parents/siblings a foster youth encounters on journey
+!!!!!-Include password confirmation field when registering and updating password- THIS DOES NOT WORK
 	
 STRETCH GOAL
 -Length of placement calculated by start date/end date on placement details page
