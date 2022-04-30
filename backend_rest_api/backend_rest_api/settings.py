@@ -66,7 +66,11 @@ MIDDLEWARE = [
 ]
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage' 
 
-CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_ALL_ORIGINS = False
+
+CORS_ALLOWED_ORIGINS = ['http://localhost:3000', ]
+
+CORS_ALLOW_CREDENTIALS = True
 
 ROOT_URLCONF = 'backend_rest_api.urls'
 
@@ -99,9 +103,9 @@ DATABASES = {
 #     }
         'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'foster_journey_db',
-        'USER': '',
-        'PASSWORD': '',
+        'NAME': 'foster_journey_db_2',
+        'USER': 'postgres',
+        'PASSWORD': 'v052xd4',
         'HOST': 'localhost'
     }
 }
@@ -160,7 +164,7 @@ REST_FRAMEWORK = {
     ),
     'DEFAULT_RENDERER_CLASSES': (
         'rest_framework.renderers.JSONRenderer',
-    )
+    ),
 }
 
 SIMPLE_JWT = {
