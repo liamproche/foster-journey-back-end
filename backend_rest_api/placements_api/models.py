@@ -1,4 +1,4 @@
-from tkinter import CASCADE
+from django.db.models.deletion import CASCADE
 from django.db import models
 from django.contrib.postgres.fields import ArrayField
 from backend_rest_api import settings
