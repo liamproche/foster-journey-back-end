@@ -66,9 +66,9 @@ MIDDLEWARE = [
 ]
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage' 
 
-CORS_ALLOW_ALL_ORIGINS = False
+CORS_ALLOW_ALL_ORIGINS = True
 
-CORS_ALLOWED_ORIGINS = ['http://localhost:3000', ]
+CORS_ALLOWED_ORIGINS = ['http://localhost:3000', 'https://foster-journey-frontend.herokuapp.com']
 
 CORS_ALLOW_CREDENTIALS = True
 
@@ -103,9 +103,9 @@ DATABASES = {
 #     }
         'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'foster_journey_db_2',
-        'USER': 'postgres',
-        'PASSWORD': 'v052xd4',
+        'NAME': 'foster_journey_db',
+        'USER': '',
+        'PASSWORD': '',
         'HOST': 'localhost'
     }
 }
