@@ -1,6 +1,5 @@
 # foster-journey-back-end
 
-# foster-journey-front-end
 <h1>Foster Journey</h1>
 
 <h2>App Descirption</h2>
